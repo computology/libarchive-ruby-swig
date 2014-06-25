@@ -2481,8 +2481,8 @@ _wrap_Reader_read_open_filename__SWIG_0(int argc, VALUE *argv, VALUE self) {
     } catch(Error &err) {
       static VALUE c_archive = rb_define_module("Archive");
       static VALUE e_archive =
-      rb_define_class_under(c_archive, "Error", rb_eStandardError);
-      static VALUE o_except = rb_exc_new2(e_archive, err.what());
+	      rb_define_class_under(c_archive, "Error", rb_eStandardError);
+      VALUE o_except = rb_exc_new2(e_archive, err.what());
       rb_exc_raise(o_except);
     }
   }
@@ -2529,8 +2529,8 @@ _wrap_Reader_read_open_filename__SWIG_1(int argc, VALUE *argv, VALUE self) {
     } catch(Error &err) {
       static VALUE c_archive = rb_define_module("Archive");
       static VALUE e_archive =
-      rb_define_class_under(c_archive, "Error", rb_eStandardError);
-      static VALUE o_except = rb_exc_new2(e_archive, err.what());
+	      rb_define_class_under(c_archive, "Error", rb_eStandardError);
+      VALUE o_except = rb_exc_new2(e_archive, err.what());
       rb_exc_raise(o_except);
     }
   }
@@ -2568,8 +2568,8 @@ _wrap_Reader_read_open_filename__SWIG_2(int argc, VALUE *argv, VALUE self) {
     } catch(Error &err) {
       static VALUE c_archive = rb_define_module("Archive");
       static VALUE e_archive =
-      rb_define_class_under(c_archive, "Error", rb_eStandardError);
-      static VALUE o_except = rb_exc_new2(e_archive, err.what());
+	      rb_define_class_under(c_archive, "Error", rb_eStandardError);
+      VALUE o_except = rb_exc_new2(e_archive, err.what());
       rb_exc_raise(o_except);
     }
   }
@@ -2695,8 +2695,8 @@ _wrap_Reader_read_open_memory__SWIG_0(int argc, VALUE *argv, VALUE self) {
     } catch(Error &err) {
       static VALUE c_archive = rb_define_module("Archive");
       static VALUE e_archive =
-      rb_define_class_under(c_archive, "Error", rb_eStandardError);
-      static VALUE o_except = rb_exc_new2(e_archive, err.what());
+	      rb_define_class_under(c_archive, "Error", rb_eStandardError);
+      VALUE o_except = rb_exc_new2(e_archive, err.what());
       rb_exc_raise(o_except);
     }
   }
@@ -2746,8 +2746,8 @@ _wrap_Reader_read_open_memory__SWIG_1(int argc, VALUE *argv, VALUE self) {
     } catch(Error &err) {
       static VALUE c_archive = rb_define_module("Archive");
       static VALUE e_archive =
-      rb_define_class_under(c_archive, "Error", rb_eStandardError);
-      static VALUE o_except = rb_exc_new2(e_archive, err.what());
+	      rb_define_class_under(c_archive, "Error", rb_eStandardError);
+      VALUE o_except = rb_exc_new2(e_archive, err.what());
       rb_exc_raise(o_except);
     }
   }
@@ -2788,8 +2788,8 @@ _wrap_Reader_read_open_memory__SWIG_2(int argc, VALUE *argv, VALUE self) {
     } catch(Error &err) {
       static VALUE c_archive = rb_define_module("Archive");
       static VALUE e_archive =
-      rb_define_class_under(c_archive, "Error", rb_eStandardError);
-      static VALUE o_except = rb_exc_new2(e_archive, err.what());
+	      rb_define_class_under(c_archive, "Error", rb_eStandardError);
+      VALUE o_except = rb_exc_new2(e_archive, err.what());
       rb_exc_raise(o_except);
     }
   }
@@ -2901,8 +2901,8 @@ _wrap_Reader_next_header(int argc, VALUE *argv, VALUE self) {
     } catch(Error &err) {
       static VALUE c_archive = rb_define_module("Archive");
       static VALUE e_archive =
-      rb_define_class_under(c_archive, "Error", rb_eStandardError);
-      static VALUE o_except = rb_exc_new2(e_archive, err.what());
+	      rb_define_class_under(c_archive, "Error", rb_eStandardError);
+      VALUE o_except = rb_exc_new2(e_archive, err.what());
       rb_exc_raise(o_except);
     }
   }
@@ -2953,8 +2953,8 @@ _wrap_Reader_read_data_helper(int argc, VALUE *argv, VALUE self) {
     } catch(Error &err) {
       static VALUE c_archive = rb_define_module("Archive");
       static VALUE e_archive =
-      rb_define_class_under(c_archive, "Error", rb_eStandardError);
-      static VALUE o_except = rb_exc_new2(e_archive, err.what());
+	      rb_define_class_under(c_archive, "Error", rb_eStandardError);
+      VALUE o_except = rb_exc_new2(e_archive, err.what());
       rb_exc_raise(o_except);
     }
   }
@@ -3110,8 +3110,8 @@ _wrap_Writer_write_open_filename__SWIG_0(int argc, VALUE *argv, VALUE self) {
     } catch(Error &err) {
       static VALUE c_archive = rb_define_module("Archive");
       static VALUE e_archive =
-      rb_define_class_under(c_archive, "Error", rb_eStandardError);
-      static VALUE o_except = rb_exc_new2(e_archive, err.what());
+	      rb_define_class_under(c_archive, "Error", rb_eStandardError);
+      VALUE o_except = rb_exc_new2(e_archive, err.what());
       rb_exc_raise(o_except);
     }
   }
@@ -3165,8 +3165,8 @@ _wrap_Writer_write_open_filename__SWIG_1(int argc, VALUE *argv, VALUE self) {
     } catch(Error &err) {
       static VALUE c_archive = rb_define_module("Archive");
       static VALUE e_archive =
-      rb_define_class_under(c_archive, "Error", rb_eStandardError);
-      static VALUE o_except = rb_exc_new2(e_archive, err.what());
+	      rb_define_class_under(c_archive, "Error", rb_eStandardError);
+      VALUE o_except = rb_exc_new2(e_archive, err.what());
       rb_exc_raise(o_except);
     }
   }
@@ -3274,8 +3274,8 @@ _wrap_Writer_write_header(int argc, VALUE *argv, VALUE self) {
     } catch(Error &err) {
       static VALUE c_archive = rb_define_module("Archive");
       static VALUE e_archive =
-      rb_define_class_under(c_archive, "Error", rb_eStandardError);
-      static VALUE o_except = rb_exc_new2(e_archive, err.what());
+	      rb_define_class_under(c_archive, "Error", rb_eStandardError);
+      VALUE o_except = rb_exc_new2(e_archive, err.what());
       rb_exc_raise(o_except);
     }
   }
@@ -3327,8 +3327,8 @@ _wrap_Writer_write_data_helper(int argc, VALUE *argv, VALUE self) {
     } catch(Error &err) {
       static VALUE c_archive = rb_define_module("Archive");
       static VALUE e_archive =
-      rb_define_class_under(c_archive, "Error", rb_eStandardError);
-      static VALUE o_except = rb_exc_new2(e_archive, err.what());
+	      rb_define_class_under(c_archive, "Error", rb_eStandardError);
+      VALUE o_except = rb_exc_new2(e_archive, err.what());
       rb_exc_raise(o_except);
     }
   }
@@ -5169,8 +5169,8 @@ _wrap_Entry_copy_stat_helper(int argc, VALUE *argv, VALUE self) {
     } catch(Error &err) {
       static VALUE c_archive = rb_define_module("Archive");
       static VALUE e_archive =
-      rb_define_class_under(c_archive, "Error", rb_eStandardError);
-      static VALUE o_except = rb_exc_new2(e_archive, err.what());
+	      rb_define_class_under(c_archive, "Error", rb_eStandardError);
+      VALUE o_except = rb_exc_new2(e_archive, err.what());
       rb_exc_raise(o_except);
     }
   }
