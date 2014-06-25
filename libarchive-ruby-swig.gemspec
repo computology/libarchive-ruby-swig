@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name = "libarchive-ruby-swig"
-  s.version = "0.6.4"
+  s.version = "0.6.5"
   s.date = "2013-12-28"
   s.authors = ["Tobias Koch"]
   s.email = "tobias.koch@gmail.com"
@@ -19,6 +19,5 @@ Gem::Specification.new do |s|
     "ext/libarchive-ruby-swig/reader.cpp",
     "ext/libarchive-ruby-swig/reader.h",
     "ext/libarchive-ruby-swig/writer.cpp",
-    "ext/libarchive-ruby-swig/writer.h",
-    "ext/libarchive-ruby-swig/libarchive_wrap.cxx" ]
+    "ext/libarchive-ruby-swig/writer.h"]
 end
