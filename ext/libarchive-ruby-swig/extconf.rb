@@ -25,10 +25,11 @@ swig = [ 'swig2', 'swig2.0', 'swig' ].select { |swig_name|
   find_executable(swig_name) }.first
 
 if swig
-  $stdout.write "Using '#{swig}' to generate wrapper code... "
-  `#{swig} -c++ -ruby -features autodoc=0 libarchive.i`
-  $stdout.write "done\n"
-  $distcleanfiles += [ 'libarchive_wrap.cxx', 'libarchive_wrap_doc.cxx' ]
+  #$stdout.write "Using '#{swig}' to generate wrapper code... "
+  #`#{swig} -c++ -ruby -features autodoc=0 libarchive.i`
+  #$stdout.write "done\n"
+  #$distcleanfiles += [ 'libarchive_wrap.cxx', 'libarchive_wrap_doc.cxx' ]
+  $stdout.write "NOT running SWIG to avoid some segfaults in the generated code.\n"
 else
   $stderr.write "You need SWIG to compile this extension.\n"
   exit 1
