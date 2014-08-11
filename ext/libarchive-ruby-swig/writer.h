@@ -77,24 +77,20 @@ class Writer
 
 #ifdef SWIG
 %feature("autodoc", "Use Archive::write_open_filename instead") write_open_filename;
-%newobject write_open_filename(const char *filename,
-    const char *cmd, int format);
-%newobject write_open_filename(const char *filename,
-    int compression, int format);
+%newobject write_open_filename(const char *filename, const char *cmd, int format);
+%newobject write_open_filename(const char *filename, int compression, int format);
 #endif
 
-        static Writer *write_open_filename(const char *filename,
-            const char *cmd, int format);
+        static Writer *write_open_filename(const char *filename, const char *cmd, int format);
 
-        static Writer *write_open_filename(const char *filename,
-            int compression, int format);
+        static Writer *write_open_filename(const char *filename, int compression, int format);
 
         #ifdef SWIG
         %feature("autodoc", "Write Entry meta data to Archive") write_header;
         #endif
         void write_header(Entry *entry);
 
-        void write_data_helper(const char *string, int length);
+        void write_data_helper(const char *string, size_t length);
 
 #ifdef SWIG
 %exception;
@@ -111,7 +107,6 @@ class Writer
 
         struct archive *_ar;
         char *_buf;
-        int _buf_size;
 
         std::map<unsigned long, std::map<unsigned long, std::string> > _hardlinks;
 };

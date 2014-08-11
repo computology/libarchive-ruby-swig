@@ -81,11 +81,21 @@ Reader *Reader::read_open_filename(const char *filename, const char *cmd, bool r
 }
 
 
-Reader *Reader::read_open_memory(const char *string, int length,
-    const char *cmd, bool raw)
+Reader *Reader::read_open_memory(const char *string, size_t length, const char *cmd, bool raw)
 {
     struct archive *ar = archive_read_new();
     char *content = (char*) malloc(length);
+
+    if (!ar) {
+        std::string error_msg = archive_error_string(ar);
+        throw Error(error_msg);
+    }
+
+    if (!content) {
+        archive_read_free(ar);
+	throw Error("Unable to allocate memory for copying the archive!");
+    }
+
     memcpy((void*) content, (void*) string, length);
 
     try {
@@ -150,11 +160,11 @@ Entry *Reader::next_header()
 }
 
 
-VALUE Reader::read_data_helper(int len)
+VALUE Reader::read_data_helper(size_t len)
 {
     std::string error_msg = "error while reading from archive";
 
-    if(len > _buf_size) {
+    if (len > _buf_size) {
         _buf = (char*) realloc(_buf, len);
         _buf_size = len;
     }

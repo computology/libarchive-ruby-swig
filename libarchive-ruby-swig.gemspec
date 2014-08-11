@@ -1,7 +1,7 @@
 Gem::Specification.new do |s|
   s.name = "libarchive-ruby-swig"
-  s.version = "0.6.5"
-  s.date = "2013-12-28"
+  s.version = "0.6.7"
+  s.date = "2014-08-11"
   s.authors = ["Tobias Koch"]
   s.email = "tobias.koch@gmail.com"
   s.summary = "Ruby bindings to libarchive"
