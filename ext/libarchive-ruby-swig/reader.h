@@ -49,12 +49,14 @@ class Reader
 %feature("autodoc", "Use <code>Archive::read_open_memory</code> instead") read_open_memory;
 %newobject read_open_memory(const char *string, size_t length, const char *cmd = 0, bool raw = false);
 %feature("autodoc", "Returns the next Entry meta data object in the Archive") next_header;
+%feature("autodoc", "Use <code>Archive::read_open_fd</code> instead") read_open_fd;
+%newobject read_open_fd(int fd, size_t blocksz, const char *cmd = NULL, bool raw = false);
 %newobject next_header();
 #endif
 
         static Reader *read_open_filename(const char *filename, const char *cmd = 0, bool raw = false);
         static Reader *read_open_memory(const char *string, size_t length, const char *cmd = 0, bool raw = false);
-
+        static Reader *read_open_fd(int fd, size_t blocksz, const char *cmd = NULL, bool raw = false);
         Entry *next_header();
         VALUE read_data_helper(size_t len);
 

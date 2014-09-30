@@ -155,6 +155,31 @@ module Archive
 
   ##
   #
+  # Open Ruby IO object for reading. Libarchive automatically determines archive
+  # format and compression scheme. Optionally, you can specify an auxiliary
+  # command to be used for decompression.
+  #
+  # Returns a Reader instance.
+  #
+  def self.read_open_io(io, cmd = nil, raw = false)
+    unless cmd.nil?
+      cmd = locate_cmd(cmd)
+    end
+
+    fd = io.fileno
+
+    ar = Reader.read_open_fd(fd, cmd, raw)
+
+    if block_given?
+      yield ar
+      ar.close()
+    else
+      return ar
+    end
+  end
+
+  ##
+  #
   # Open filename for reading. Libarchive automatically determines archive
   # format and compression scheme. Optionally, you can specify an auxiliary
   # command to be used for decompression.
