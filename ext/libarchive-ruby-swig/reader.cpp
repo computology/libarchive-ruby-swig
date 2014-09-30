@@ -50,6 +50,9 @@ void Reader::close()
 Reader *Reader::read_open_filename(const char *filename, const char *cmd, bool raw) 
 {
     struct archive *ar = archive_read_new();
+    if (!ar) {
+	throw Error("Unable to allocate libarchive handle!");
+    }
 
     try {
         if(cmd) {
@@ -80,6 +83,42 @@ Reader *Reader::read_open_filename(const char *filename, const char *cmd, bool r
     return new Reader(ar);
 }
 
+Reader *Reader::read_open_fd(int fd, size_t blocksz, const char *cmd, bool raw)
+{
+    struct archive *ar = archive_read_new();
+    if (!ar) {
+        throw Error("Unable to allocte libarchive handle!");
+    }
+
+    try {
+        if(cmd) {
+            if(archive_read_support_filter_program(ar, cmd) != ARCHIVE_OK)
+                throw Error("Unable to set filter support program");
+        } else {
+            if(archive_read_support_filter_all(ar) != ARCHIVE_OK)
+                throw Error("Unable to set filter all support");
+        }
+
+        if(raw) {
+            if(archive_read_support_format_raw(ar) != ARCHIVE_OK)
+                throw Error("Unable to set read format to raw");
+        } else {
+            if(archive_read_support_format_all(ar) != ARCHIVE_OK)
+		throw Error("Unable to set read format to all");
+        }
+
+        if(archive_read_open_fd(ar, fd, blocksz) != ARCHIVE_OK)
+            throw Error("Unable to call read_open_fd");
+
+    } catch(...) {
+        std::string error_msg = archive_error_string(ar);
+        archive_read_free(ar);
+        throw Error(error_msg);
+    }
+
+    Reader *reader_obj = new Reader(ar);
+    return reader_obj;
+}
 
 Reader *Reader::read_open_memory(const char *string, size_t length, const char *cmd, bool raw)
 {
