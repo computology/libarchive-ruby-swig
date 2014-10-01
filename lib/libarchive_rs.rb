@@ -161,14 +161,14 @@ module Archive
   #
   # Returns a Reader instance.
   #
-  def self.read_open_io(io, cmd = nil, raw = false)
+  def self.read_open_io(io, blocksz = 4096, cmd = nil, raw = false)
     unless cmd.nil?
       cmd = locate_cmd(cmd)
     end
 
     fd = io.fileno
 
-    ar = Reader.read_open_fd(fd, cmd, raw)
+    ar = Reader.read_open_fd(fd, blocksz, cmd, raw)
 
     if block_given?
       yield ar
