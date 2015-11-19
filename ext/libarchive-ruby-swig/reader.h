@@ -59,6 +59,8 @@ class Reader
         static Reader *read_open_fd(int fd, size_t blocksz, const char *cmd = NULL, bool raw = false);
         Entry *next_header();
         VALUE read_data_helper(size_t len);
+        VALUE format_bits();
+        VALUE compression_bits();
 
 #ifdef SWIG
 %exception;
