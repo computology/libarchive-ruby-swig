@@ -133,9 +133,9 @@ module Archive
       bits = self.compression_bits
       compression = case bits
       when Archive::ARCHIVE_FILTER_GZIP
-        :gzip
+        :gz
       when Archive::ARCHIVE_FILTER_BZIP2
-        :bzip2
+        :bz2
       when Archive::ARCHIVE_FILTER_LZMA
         :lzma
       when Archive::ARCHIVE_FILTER_XZ
