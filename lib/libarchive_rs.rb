@@ -120,11 +120,11 @@ module Archive
       bits = bits & Archive::ARCHIVE_FORMAT_BASE_MASK
       format = case bits
       when Archive::ARCHIVE_FORMAT_TAR
-        "tar"
+        :tar
       when Archive::ARCHIVE_FORMAT_ZIP
-        "zip"
+        :zip
       when Archive::ARCHIVE_FORMAT_RAW
-        "raw"
+        :raw
       end
       format
     end
@@ -133,13 +133,13 @@ module Archive
       bits = self.compression_bits
       compression = case bits
       when Archive::ARCHIVE_FILTER_GZIP
-        "gzip"
+        :gzip
       when Archive::ARCHIVE_FILTER_BZIP2
-        "bzip2"
+        :bzip2
       when Archive::ARCHIVE_FILTER_LZMA
-        "lzma"
+        :lzma
       when Archive::ARCHIVE_FILTER_XZ
-        "xz"
+        :xz
       end
       compression
     end
