@@ -63,11 +63,13 @@ Reader *Reader::read_open_filename(const char *filename, const char *cmd, bool r
                 throw 0;
         }
 
-	if(archive_read_support_format_raw(ar) != ARCHIVE_OK)
-            throw 0;
-
-	if(archive_read_support_format_all(ar) != ARCHIVE_OK)
-            throw 0;
+        if(raw) {
+            if(archive_read_support_format_raw(ar) != ARCHIVE_OK)
+                throw 0;
+        } else {
+            if(archive_read_support_format_all(ar) != ARCHIVE_OK)
+                throw 0;
+        }
 
         if(archive_read_open_filename(ar, filename, 1024) != ARCHIVE_OK)
             throw 0;
@@ -97,11 +99,13 @@ Reader *Reader::read_open_fd(int fd, size_t blocksz, const char *cmd, bool raw)
                 throw Error("Unable to set filter all support");
         }
 
-	if(archive_read_support_format_raw(ar) != ARCHIVE_OK)
-		throw Error("Unable to set read format to raw");
-
-	if(archive_read_support_format_all(ar) != ARCHIVE_OK)
+        if(raw) {
+            if(archive_read_support_format_raw(ar) != ARCHIVE_OK)
+                throw Error("Unable to set read format to raw");
+        } else {
+            if(archive_read_support_format_all(ar) != ARCHIVE_OK)
 		throw Error("Unable to set read format to all");
+        }
 
         if(archive_read_open_fd(ar, fd, blocksz) != ARCHIVE_OK)
             throw Error("Unable to call read_open_fd");
@@ -141,11 +145,13 @@ Reader *Reader::read_open_memory(const char *string, size_t length, const char *
                 throw 0;
         }
 
-	if(archive_read_support_format_raw(ar) != ARCHIVE_OK)
-            throw 0;
-
-	if(archive_read_support_format_all(ar) != ARCHIVE_OK)
-            throw 0;
+        if(raw) {
+            if(archive_read_support_format_raw(ar) != ARCHIVE_OK)
+                throw 0;
+        } else {
+            if(archive_read_support_format_all(ar) != ARCHIVE_OK)
+                throw 0;
+        }
 
         if(archive_read_open_memory(ar, (void*) content, length) != ARCHIVE_OK)
             throw 0;
