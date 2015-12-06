@@ -140,6 +140,8 @@ module Archive
         :lzma
       when Archive::ARCHIVE_FILTER_XZ
         :xz
+      when Archive::ARCHIVE_FILTER_COMPRESS
+        :Z
       end
       compression
     end
