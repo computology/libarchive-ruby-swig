@@ -84,6 +84,7 @@ module Archive
     alias :devmajor= :set_devmajor
     alias :devminor= :set_devminor
     alias :atime= :set_atime
+    alias :ctime= :set_ctime
     alias :dev= :set_dev
     alias :gid= :set_gid
     alias :gname= :set_gname

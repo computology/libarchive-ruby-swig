@@ -121,6 +121,16 @@ void Entry::set_atime(unsigned long atime)
     archive_entry_set_atime(_entry, atime, 0);
 }
 
+unsigned long Entry::ctime()
+{
+    return archive_entry_ctime(_entry);
+}
+
+void Entry::set_ctime(unsigned long ctime)
+{
+    archive_entry_set_ctime(_entry, ctime, 0);
+}
+
 void Entry::clear()
 {
     archive_entry_clear(_entry);
