@@ -112,6 +112,16 @@ class Entry
         void set_atime(unsigned long atime);
 
         #ifdef SWIG
+        %feature("autodoc", "Returns the ctime of the saved Entry as a timestamp since epoch") ctime;
+        #endif
+        unsigned long ctime();
+
+        #ifdef SWIG
+        %feature("autodoc", "Sets the ctime of Entry to the given timestamp since epoch") set_ctime;
+        #endif
+        void set_ctime(unsigned long ctime);
+
+        #ifdef SWIG
         %feature("autodoc", "Resets the Entry") clear;
         #endif
         void clear();
